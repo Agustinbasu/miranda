@@ -1,0 +1,15 @@
+0# En una fiesta elegante, sientes la presión de un pretendiente que va a pedir tu mano. El ambiente se torna extraño cuando un conejo blanco aparece, llevándote a seguirlo y dejando atrás lo conocido.¿Decides seguir al conejo, dejando atrás lo que conoces?
+1# Sigues al conejo, cayendo en una madriguera. Aterrizas en un mundo familiar, donde Absolem, la oruga, te muestra una profecía sobre tu destino.¿Decides aceptar ser la Alicia de la profecía y continuar tu viaje?
+2# Aceptas tu destino y te adentras en el bosque, donde encuentras a los secuaces de la Reina Roja capturando a tus amigos. El Gato Sonriente te guía a un lugar seguro, donde el Sombrerero Loco te advierte del peligro.¿Irás a rescatar a tus nuevos y extraños amigos?
+3# Decides enfrentarte a la Reina Roja, infiltrándote en su castillo. Te vuelves gigante, atrayendo la atención de la Reina, que muestra interés en ti y te ofrece unirte a su corte.¿Aceptarás?
+4# Rechazas unirte a la Reina Roja y liberas a tus amigos, ganando la espada vorpal y el Bandersnatch como aliado. Te diriges al castillo de la Reina Blanca que te informa sobre la batalla final.¿Te enfrentarás al Jabberwocky y defenderás el País de las Maravillas?
+5# Decides luchar contra el Jabberwocky y logras derrotarlo, restaurando el orden en el País de las Maravillas. La Reina Blanca te ofrece un elixir para regresar a casa, pero te ofrecen quedarte.¿Te quedas en el País de las Maravillas?
+6# Decides regresar a tu hogar, para así poder explorar el mundo, rechazando la prpuesta de Hymitch y los estereotipos de la época. 
+7# Rechazas seguir al conejo, aceptando tu vida en la fiesta. Haymitch te propone matrimonio.¿Aceptas su propuesta?
+8# Aceptas la propuesta y vives una vida cómoda, pero sientes que algo se apaga en ti con el tiempo. 
+9# Decides no enfrentar el desafío de Absolem y vuelves a la fiesta, donde Haymitch te vuelve a proponer matrimonio.¿Decides casarte con él?
+10# Rechazas arriesgarte y decides escapar del peligro. Pero los secuaces de la Reina Roja te atrapan y te llevan a su castillo. Terminas trabajando como esclava. 
+11# Decides unirte a la corte de la Reina Roja, cediendo al poder y perdiéndote en su tiranía, convirtiéndote en una figura cruel. 
+12# Te niegas a luchar y dejas caer la espada, sintiendo la desesperación. La Reina Roja se presenta, ofreciéndote unirte a ella.¿Te unirás a la corte de la Reina Roja para salvar tu vida?
+13# Decides quedarte en Infratierra, disfrutando de la compañía del Sombrerero y los demás, formando un nuevo hogar. 
+14# Rechazas la propuesta de Haymitch, sintiendo alivio y eligiendo tu propio camino. Al final, te reconectas con tu madre, sintiendo su apoyo. 
