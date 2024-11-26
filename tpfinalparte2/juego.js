@@ -1,54 +1,120 @@
 class Juego {
-  constructor(cantidadObjetos) {
-  this.cantidadObjetos = cantidadObjetos;
-  this.crearPersonaje(width / 2, 100);
-  this.crearObjetos();
-  this.vidas = new Vidas(3); // Inicializa 3 vidas
-}
+  constructor() {
 
-  dibujar() {
-    this.personaje.dibujar();
-    for (let i = 0; i < this.cantidadObjetos; i++) {
-      this.objetos[i].dibujar();
+    this.personaje= new Personaje();
+
+    this.estado = "inicio";
+    this.imgInicio= loadImage("data/pantallainicio.png");
+    this.crearPersonaje();
+    this.crearIngredientes();
+
+    this.botonInicio = new Boton ("EMPEZAR", width/2, height*0.75, 100, 40);
+
+    this.puntos=0;
+    this.vidas = 3;
+
+
+    this.ingredientes = [];
+    this.cant = 3;
+
+
+    for ( let i=0; i<this.cant; i++) {
+
+      this.ingredientes[i] = new Ingrediente();
     }
-     this.vidas.dibujar();
   }
 
   actualizar() {
-    for (let i = 0; i < this.cantidadObjetos; i++) {
-      this.objetos[i].mover();
+    if (this.estado==="inicio") {
+      this.pantallaInicio();
+    } else if (this.estado=="jugando") {
+
+      for  ( let i=0; i<this.ingredientes.length; i++) {
+
+        this.ingredientes[i].actualizar();
+      }
+      this.personaje.actualizar();
+      this.mostrarPuntosYVidas();
+    }
+    for ( let i=0; i<this.ingredientes.length; i++) {
+      if ( this.ingredientes[i].evaluaColision( this.x, this.y) ) {
+        if ( this.ingredientes[i].tipo == 0 ) {
+          this.puntos++;
+        } else {
+          this.vidas--;
+        }
+        if (this.vidas==0) {
+          this.estado = "creditos";
+        }
+      }
+    }
+
+    if (this.estado==="creditos") {
+      this.pantallaCreditos ();
     }
   }
 
-  crearObjetos() {
-    this.objetos = [];
-    for (let i = 0; i < this.cantidadObjetos; i++) {
-      let posX = random(width); // Posición aleatoria en X
-      let posY = height + random(50, 1000); // Inicia fuera de la pantalla en la parte inferior
-      this.objetos[i] = new Objeto(posX, posY);
+  pantallaInicio() {
+    push();
+    image (this.imgInicio, 0, 0);
+
+    this.botonInicio.actualizar();
+    pop();
+  }
+
+  pantallaCreditos() {
+    push();
+    background(0, 0, 0, 150);
+    fill(255);
+    textSize(32);
+    textAlign(CENTER, CENTER);
+    text("Fin del Juego", width / 2, height / 3);
+
+    let botonTexto = "REINTENTAR";
+    let boton = new Boton(botonTexto, width / 2, height * 0.75, 150, 50);
+    boton.actualizar();
+    pop();
+  }
+  
+  mostrarPuntosYVidas() {
+    fill(0);
+    textSize(20);
+    textAlign(LEFT, TOP);
+    text("Puntos: " + this.puntos, 20, 20);
+    text("Vidas: " + this.vidas, 20, 50);
+  }
+
+
+  mousePressed() {
+    if ( this.estado==="inicio") {
+      if (this.botonInicio.colisionMouse() ) {
+
+        this.estado = "jugando";
+        this.puntos=0;
+        this.vidas=3;
+        this.crearIngredientes();
+      }
+    } else if (this.estado==="creditos") {
+      if (this.botonInicio.colisionMouse()) {
+        this.estado = "inicio";
+        this.puntos = 0;
+        this.vidas = 3;
+        this.crearIngredientes();
+      }
+    }
+  }
+  crearIngredientes() {
+    this.ingredientes = [];
+    for (let i=0; i<this.cant; i++) {
+      this.ingredientes[i] = new Ingrediente(i*20, 100);
     }
   }
 
-  crearPersonaje(posX, posY) {
-    this.personaje = new Personaje(posX, posY);
+  crearPersonaje() {
+    this.personaje = new Personaje(width/2, 300);
   }
 
   teclaPresionada(keyCode) {
     this.personaje.teclaPresionada(keyCode);
   }
-
- verificarColisiones() {
-  for (let i = 0; i < this.cantidadObjetos; i++) {
-    let objeto = this.objetos[i];
-    if (this.personaje.colisionaCon(objeto)) {
-      this.vidas.perderVida(); // Pierde una vida
-      objeto.posY = height + random(50, 1000); // Reinicia posición del objeto
-
-      if (this.vidas.vidasRestantes() === 0) {
-        juegoIniciado = 3; // Vuelve a la pantalla inicial
-      }
-      break;
-    }
-  }
-}
 }
